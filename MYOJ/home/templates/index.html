@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5dc;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #006400;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .problems-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .problems-list h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .problems-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .problems-list li {
+            background-color: #e0e0e0;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .problems-list li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .problems-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Online Judge</h1>
+    <div class="container">
+        <form action="/auth/login">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+
+    <div class="problems-list">
+        <h3>List of the problems:</h3>
+        <ul>
+            {% for problem in problems %}
+            <li>{{ problem.id }} &nbsp;<a href="/{{problem.id}}/">{{ problem.name }}</a> &nbsp;&nbsp;&nbsp; : &nbsp;{{problem.difficulty}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="vertical-center">
+        <form action="/submit">
+            <input type="submit" value="Custom compiler" />
+        </form>
+    </div>
+</body>
+
+</html>
